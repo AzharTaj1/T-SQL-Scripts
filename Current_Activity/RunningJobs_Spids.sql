@@ -1,0 +1,1 @@
+select * from sysprocesses where PROGRAM_NAME like 'SQLAgent%'

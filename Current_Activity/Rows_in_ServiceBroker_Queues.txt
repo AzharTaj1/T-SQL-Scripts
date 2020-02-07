@@ -1,0 +1,7 @@
+Use <ServiceBroker database> -- e.g., MessageQueue database on \\SeapPcSql01
+
+select t.name, rows
+from sys.tables t
+	inner join sys.procedures p with (nolock) on p.name = 'PeekPriorityMessage_' + t.name + '_V6'
+	inner join sys.partitions r with (nolock) on r.object_id = t.object_id and r.index_id = 1
+order by 2 desc 
