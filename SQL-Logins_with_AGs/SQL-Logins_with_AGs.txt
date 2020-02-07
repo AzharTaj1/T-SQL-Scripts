@@ -1,0 +1,12 @@
+-- Using SQL Logins with AlwaysOn availability groups:  http://blog.uvm.edu/jgm/2013/09/03/sql-logins-with-availability-groups/
+
+/*
+The SID for SQL logins on the different replicas needs to be identical. On the primary replica, run the following to find out the SID associated with it:
+SELECT SUSER_SID ('[SqlLogin]')
+
+Next use this SID to create the login on all the secondary replicas. */
+
+USE [master]
+GO
+CREATE LOGIN [<SQL_Login>] WITH PASSWORD=N'<Password>', SID=0xC8A8BF5CF04C46429070854130BF827F, DEFAULT_DATABASE=master, DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO

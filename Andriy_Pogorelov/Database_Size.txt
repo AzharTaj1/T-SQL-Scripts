@@ -1,0 +1,38 @@
+SELECT db_name() AS DBName
+,NAME AS [FileName]
+,Type_desc
+,growth * 8.0 / 1024 AS GrowthInMB
+,size * 8.0 / 1024 AS FileSizeInMB
+,FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024 AS UsedSpaceInMB
+,size * 8.0 / 1024 - FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024 AS AvailableSpaceInMB
+,convert(numeric(3,0), round((size * 8.0 / 1024 - FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024) / (size * 8.0 / 1024) * 100, 0)) AS AvailableSpaceInPerc
+,Physical_Name
+FROM sys.database_files
+
+UNION ALL
+
+SELECT db_name() AS DBName
+,'TOTAL'
+,NULL
+,NULL
+,sum(size * 8.0 / 1024) AS FileSizeInMB
+,sum(FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024) AS UsedSpaceInMB
+,sum(size * 8.0 / 1024 - FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024) AS AvailableSpaceInMB 
+,convert(numeric(3,0), round(sum(size * 8.0 / 1024 - FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024) / sum(size * 8.0 / 1024) * 100, 0)) AS AvailableSpaceInPerc
+,NULL
+FROM sys.database_files
+
+UNION ALL
+
+SELECT db_name() AS DBName
+,'TOTAL WITHOUT LOG'
+,NULL
+,NULL
+,sum(size * 8.0 / 1024) AS FileSizeInMB
+,sum(FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024) AS UsedSpaceInMB
+,sum(size * 8.0 / 1024 - FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024) AS AvailableSpaceInMB
+,convert(numeric(3,0), round(sum(size * 8.0 / 1024 - FILEPROPERTY(NAME, 'SpaceUsed') * 8.0 / 1024) / sum(size * 8.0 / 1024) * 100, 0)) AS AvailableSpaceInPerc
+,NULL
+FROM sys.database_files
+WHERE type = 0
+--ORDER BY NAME;

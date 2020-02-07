@@ -1,0 +1,17 @@
+cls;
+$TotalMemory = (Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property capacity -Sum | select -ExpandProperty sum) / 1024 / 1024 / 1024 
+
+$AllProcesses = (get-process | measure -prop PM -sum | select -ExpandProperty sum) / 1024 / 1024 / 1024
+
+$Mssql = (get-process | where {$_.Name -like "sqlservr*"} | measure -prop PM -sum | select -ExpandProperty sum) / 1024 / 1024 / 1024
+
+$AvailableMemory = (Get-Counter "\memory\Available mbytes" | select -ExpandProperty CounterSamples).CookedValue / 1024 
+
+$MemoryLeak = $TotalMemory - ($AllProcesses + $AvailableMemory)
+
+Write-Output " MSSQL(s) consumes(GB): $Mssql"
+""
+Write-Output " Total Memory(GB): $TotalMemory"
+Write-Output "All Processes consume(GB): $AllProcesses"
+Write-Output " Available Memory(GB): $AvailableMemory"
+Write-Output " Memory Leak(GB): $MemoryLeak"

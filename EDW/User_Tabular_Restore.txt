@@ -1,0 +1,40 @@
+USE [master]
+RESTORE DATABASE [User_Tabular] FROM 
+ DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_01_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_02_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_03_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_04_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_05_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_06_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_07_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_08_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_09_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_10_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_11_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_12_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_13_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_14_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_15_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_16_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_17_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_18_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_19_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_20_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_21_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_22_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_23_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_24_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_25_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_26_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_27_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_28_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_29_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_30_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_31_OF_32.cBAK'
+, DISK = '\\seapsqledw03\SEAPSQLEDW03_backup\User_Tabular_DB_20171030051044_SET_32_OF_32.cBAK'
+ WITH  FILE = 1,  
+ MOVE N'User_Tabular' TO N'E:\SQLFiles\MSSQL.MSSQLSERVER.DATA\User_Tabular.mdf',  
+ MOVE N'User_Tabular_2' TO N'E:\SQLFiles\MSSQL.MSSQLSERVER.DATA\User_Tabular_2.ndf',  
+ MOVE N'User_Tabular_3' TO N'I:\SQLFiles\MSSQL.MSSQLSERVER.DATA\User_Tabular_3.ndf',  
+ MOVE N'User_Tabular_log' TO N'F:\SQLFiles\MSSQL.MSSQLSERVER.Log\User_Tabular_log.ldf',  
+ NORECOVERY,  NOUNLOAD,  REPLACE,  STATS = 1

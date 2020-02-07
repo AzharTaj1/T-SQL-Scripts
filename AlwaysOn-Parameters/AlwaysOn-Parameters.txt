@@ -1,0 +1,6 @@
+/* Use in Windows PowerShell ISE after replacing <ListenerName> with the actual SQL listener name. */
+
+Get-ClusterResource <ListenerName> | Get-ClusterParameter
+
+Get-ClusterResource <ListenerName> | Get-ClusterParameter -Name RegisterAllProvidersIP
+Get-ClusterResource <ListenerName> | Get-ClusterParameter -Name HostRecordTTL

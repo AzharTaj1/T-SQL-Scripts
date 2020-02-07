@@ -1,0 +1,9 @@
+PowerShell script:
+
+Install-Module dbatools
+
+Copy-DbaLogin -Destination frepvarsql-01 -Source frepvarsql01
+Copy-DbaAgentOperator -Destination frepvarsql-01 -Source frepvarsql01
+Copy-DbaDatabaseMail -Destination frepvarsql-01 -Source frepvarsql01
+Copy-DbaLinkedServer -Destination frepvarsql-01 -Source frepvarsql01
+Copy-DbaSqlServerAgent -Destination frepvarsql-01 -Source frepvarsql01 -DisableJobsOnDestination

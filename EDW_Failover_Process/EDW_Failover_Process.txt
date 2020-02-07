@@ -1,0 +1,14 @@
+1. SqlAgent has been stopped on \\SeapSqlEdw03 and \\SeapSqlEdw04 to reduce the load and inflight transactions on the servers.
+2. AG SQLEDWU has been changed to sync mode between \\SeapSqlEdw03 and \\SeapSqlEdw04.
+
+
+
+Next Steps:
+1. Watch the AG redo queue on \\SeapSqlEdw03 for AG SQLEDWU
+2. Once the redo queue has pretty much dissipated and \\SeapSqlEdw03 and \\SeapSqlEdw04 are in sync for this AG, then failover AG SQLEDWU to \\SeapSqlEdw03.
+3. Reboot \\SeapSqlEdw04.
+4. Wait for AG SQLEDWU to come in sync between \\SeapSqlEdw03 and \\SeapSqlEdw04.
+5. Once the redo queue has dissipated for AG SQLEDWU, then failback SQLEDWU from \\SeapSqlEdw03 to \\SeapSqlEdw04.
+6. Make sure all databases come online in AG SQLEDWU on \\SeapSqlEdw04.
+7. Check with EDW team in Slack before starting SqlServerAgent again on \\SeapSqlEdw03 and \\SeapSqlEdw04.
+8. Make AG SQLEDWU async again between \\SeapSqlEdw03 and \\SeapSqlEdw04.
